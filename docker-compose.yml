@@ -1,0 +1,31 @@
+version: "3.3"
+
+services:
+  web:
+    build: .
+    command: python wsgi.py
+    volumes:
+      - .:/code
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=flask__test
+      - POSTGRES_USER=naruto
+      - POSTGRES_PASSWORD=voloda2000
+    ports:
+      - "54320:5432"
+
+#  migration:
+#    image: postgres
+#    command: python manage.py migrate --noinput
+#    volumes:
+#      - .:/code
+#    depends_on:
+#      - db
