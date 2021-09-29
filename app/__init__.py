@@ -17,7 +17,7 @@ def create_app():
     from app.admin.admin import MyAdminIndexView, LogoutMenuLink
 
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://naruto:voloda2000@db:5432/flask_test'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@db:5432/db_name'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
     app.config['SECRET_KEY'] = 'pf9Wkove4IKEAXvy-cQkeDPhv9Cb3Ag-wyJILbq_dFw'
     app.config['SECURITY_PASSWORD_SALT'] = 'MY_SALT'
