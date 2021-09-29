@@ -7,20 +7,22 @@ services:
     volumes:
       - .:/code
     ports:
-      - "5000:5000"
+      - "5005:5005"
     depends_on:
       - db
+#    environment:
+#      DATABASE_URL: postgres://naruto:voloda2000@db:5432/flask_test
   db:
     image: postgres
     restart: always
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - .data/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=flask__test
+      - POSTGRES_DB=flask_test
       - POSTGRES_USER=naruto
       - POSTGRES_PASSWORD=voloda2000
-    ports:
-      - "54320:5432"
+#    ports:
+#      - "5432:5432"
 
 #  migration:
 #    image: postgres
